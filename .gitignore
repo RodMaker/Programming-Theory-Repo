@@ -70,6 +70,7 @@ crashlytics-build.properties
 # Temporary auto-generated Android Assets
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
+<<<<<<< HEAD
 Programming Theory Project/Library/ArtifactDB
 Programming Theory Project/Library/SourceAssetDB
 Programming Theory Project/Logs/AssetImportWorker0.log
@@ -77,4 +78,6 @@ Programming Theory Project/Logs/shadercompiler-AssetImportWorker0.log
 Programming Theory Project/Logs/shadercompiler-UnityShaderCompiler.exe1.log
 Programming Theory Project/Logs/shadercompiler-UnityShaderCompiler.exe2.log
 Programming Theory Project/Logs/shadercompiler-UnityShaderCompiler.exe3.log
+=======
+>>>>>>> main-scene
 Programming Theory Project/Temp/UnityLockfile

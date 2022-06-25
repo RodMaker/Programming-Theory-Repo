@@ -25,8 +25,8 @@ public class MainManager : MonoBehaviour
         Instance = this;
         DontDestroyOnLoad(gameObject);
 
-        LoadName();
-        LoadColor();
+        LoadName(); // ABSTRACTION
+        LoadColor(); // ABSTRACTION
     }
 
     [System.Serializable]
