@@ -6,13 +6,13 @@ using UnityEngine.AI;
 // Base class for all characters. It will handle movement order given through the UserControl script
 // It requires a NavMeshAgent to navigate the scene
 [RequireComponent(typeof(NavMeshAgent))]
-public class CharacterHandler : MonoBehaviour
+public abstract class CharacterHandler : MonoBehaviour
 {
     public float Speed = 3;
 
     protected NavMeshAgent m_Agent;
     
-    //protected Tower m_Target; // Need to investigate if I will classify it as a Transform, or as another script for example Tower / Enemy
+    protected Tower m_Target; // Need to investigate if I will classify it as a Transform, or as another script for example Tower / Enemy
     //protected Enemy m_EnemyTarget;
 
     protected void Awake()
@@ -50,13 +50,12 @@ public class CharacterHandler : MonoBehaviour
             if (distance < 2.0f)
             {
                 m_Agent.isStopped = true;
-                //TowerInRange();
+                TowerInRange();
                 //EnemyInRange();
             }
         }
     }
 
-    /*
     public virtual void GoTo(Tower target)
     {
         m_Target = target;
@@ -68,6 +67,7 @@ public class CharacterHandler : MonoBehaviour
         }
     }
 
+    /*
     public virtual void GoTo(Enemy enemyTarget)
     {
         m_EnemyTarget = enemyTarget;
@@ -88,9 +88,9 @@ public class CharacterHandler : MonoBehaviour
         m_Agent.isStopped = false;
     }
 
-    /*
     protected abstract void TowerInRange();
 
+    /*
     protected abstract void EnemyInRange();
     */
 }

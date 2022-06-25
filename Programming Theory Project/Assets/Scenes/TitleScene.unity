@@ -239,10 +239,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AvailableColors:
-  - {r: 1, g: 0, b: 0.22297573, a: 0}
-  - {r: 0, g: 0.50755835, b: 1, a: 0}
-  - {r: 0, g: 1, b: 0.48483253, a: 0}
-  - {r: 1, g: 0.49987888, b: 0, a: 0}
+  - {r: 1, g: 0, b: 0.22297573, a: 1}
+  - {r: 0, g: 0.50755835, b: 1, a: 1}
+  - {r: 0, g: 1, b: 0.48483253, a: 1}
+  - {r: 1, g: 0.49987888, b: 0, a: 1}
   ColorButtonPrefab: {fileID: 9201711289224816372, guid: 06b9acfd037ba8d43b71e6ff1e01555a, type: 3}
 --- !u!1 &128532464
 GameObject:
