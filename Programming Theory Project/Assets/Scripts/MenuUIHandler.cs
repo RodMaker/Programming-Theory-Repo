@@ -29,7 +29,7 @@ public class MenuUIHandler : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
-        ColorPicker.Init();
+        ColorPicker.Init(); // ABSTRACTION 
         // this will call the NewColorSelected function when the color picker have a color button clicked
         ColorPicker.onColorChanged += NewColorSelected;
         ColorPicker.SelectColor(MainManager.Instance.PlayerColor); // added to load the saved color
