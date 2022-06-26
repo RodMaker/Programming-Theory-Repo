@@ -2758,6 +2758,69 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1209823945}
   m_CullTransparentMesh: 1
+--- !u!1 &1255723364
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1255723367}
+  - component: {fileID: 1255723366}
+  - component: {fileID: 1255723365}
+  m_Layer: 0
+  m_Name: SpawnManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1255723365
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1255723364}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69618b3706817e74ea58e29f5804ae86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pooledObjects: []
+  objectToPool: {fileID: 4323767442355317339, guid: 6eb26be271179bd42a61ce39413c0985, type: 3}
+  amountToPool: 20
+--- !u!114 &1255723366
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1255723364}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 665719fd0be22e64c9fd800c5e56e1e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemiesPrefabs:
+  - {fileID: 5117607312475566188, guid: c0a1a5e6f5d1a46489bdaa78300b1337, type: 3}
+  - {fileID: 5117607312475566188, guid: c0a1a5e6f5d1a46489bdaa78300b1337, type: 3}
+  - {fileID: 5117607312475566188, guid: c0a1a5e6f5d1a46489bdaa78300b1337, type: 3}
+--- !u!4 &1255723367
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1255723364}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1322188179
 GameObject:
   m_ObjectHideFlags: 0
@@ -3374,7 +3437,7 @@ GameObject:
   - component: {fileID: 1467070316}
   m_Layer: 0
   m_Name: ChampionCharacter
-  m_TagString: Untagged
+  m_TagString: Champion
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3427,7 +3490,7 @@ Transform:
   m_Children:
   - {fileID: 544019546}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &1467070316
 BoxCollider:
@@ -5478,7 +5541,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6124041477764881051, guid: 36dab657c6191604c94a01d321543e3c, type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 6124041477764881051, guid: 36dab657c6191604c94a01d321543e3c, type: 3}
       propertyPath: m_LocalPosition.x
