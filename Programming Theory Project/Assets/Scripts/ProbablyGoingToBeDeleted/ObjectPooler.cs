@@ -9,6 +9,7 @@ public class ObjectPooler : MonoBehaviour
     public static ObjectPooler SharedInstance;
     public List<GameObject> pooledObjects;
     public GameObject objectToPool;
+    public GameObject enemyProjectile;
     public int amountToPool;
 
     void Awake()
@@ -24,9 +25,13 @@ public class ObjectPooler : MonoBehaviour
         for (int i = 0; i < amountToPool; i++)
         {
             GameObject obj = (GameObject)Instantiate(objectToPool);
+            GameObject enemyObj = (GameObject)Instantiate(enemyProjectile);
             obj.SetActive(false);
+            enemyObj.SetActive(false);
             pooledObjects.Add(obj);
+            pooledObjects.Add(enemyObj);
             obj.transform.SetParent(this.transform);
+            enemyObj.transform.SetParent(this.transform);
         }
     }
 

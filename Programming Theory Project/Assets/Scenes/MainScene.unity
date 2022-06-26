@@ -1773,6 +1773,13 @@ MonoBehaviour:
   GameCamera: {fileID: 963194227}
   PanSpeed: 10
   Marker: {fileID: 1480845972578717284}
+  currentAttack: 0
+  pushbackStrength: 15
+  rocketPrefab: {fileID: 7577633056403614988, guid: f85a5c07913026d42b1c8be3d4ce01bb, type: 3}
+  hangTime: 0
+  smashSpeed: 0
+  explosionForce: 30
+  explosionRadius: 5
 --- !u!4 &868656674
 Transform:
   m_ObjectHideFlags: 0
@@ -2768,7 +2775,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1255723367}
   - component: {fileID: 1255723366}
-  - component: {fileID: 1255723365}
   m_Layer: 0
   m_Name: SpawnManager
   m_TagString: Untagged
@@ -2776,21 +2782,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1255723365
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1255723364}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 69618b3706817e74ea58e29f5804ae86, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pooledObjects: []
-  objectToPool: {fileID: 4323767442355317339, guid: 6eb26be271179bd42a61ce39413c0985, type: 3}
-  amountToPool: 20
 --- !u!114 &1255723366
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2805,8 +2796,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemiesPrefabs:
   - {fileID: 5117607312475566188, guid: c0a1a5e6f5d1a46489bdaa78300b1337, type: 3}
-  - {fileID: 5117607312475566188, guid: c0a1a5e6f5d1a46489bdaa78300b1337, type: 3}
-  - {fileID: 5117607312475566188, guid: c0a1a5e6f5d1a46489bdaa78300b1337, type: 3}
+  - {fileID: 9014225267960074195, guid: 7e56184d8ec5e9845a1cb8e68a4af712, type: 3}
+  - {fileID: 9014225267960074195, guid: 7e56184d8ec5e9845a1cb8e68a4af712, type: 3}
 --- !u!4 &1255723367
 Transform:
   m_ObjectHideFlags: 0
@@ -3435,6 +3426,7 @@ GameObject:
   - component: {fileID: 1467070314}
   - component: {fileID: 1467070313}
   - component: {fileID: 1467070316}
+  - component: {fileID: 1467070317}
   m_Layer: 0
   m_Name: ChampionCharacter
   m_TagString: Champion
@@ -3505,6 +3497,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 2.0765219, z: 1}
   m_Center: {x: 0, y: -0.004730284, z: 0}
+--- !u!54 &1467070317
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1467070312}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &1469143212
 GameObject:
   m_ObjectHideFlags: 0

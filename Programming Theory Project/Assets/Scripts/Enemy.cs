@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 // Base class for all enemies
-public class Enemy : MonoBehaviour
+public abstract class Enemy : MonoBehaviour
 {
     public float speed = 3;
     private ChampionCharacter championCharacter;
@@ -21,21 +21,23 @@ public class Enemy : MonoBehaviour
         Move(); // ABSTRACTION
     }
 
-    public void Move()
+    public virtual void Move()
     {
-        if (championCharacter.transform.position.z - transform.position.z == 0)
-        {
-            isMoving = false;
-        }
-
         if (!isMoving)
         {
+            speed = 0;
             return;
         }
 
         if (isMoving)
         {
             transform.Translate(Vector3.forward * Time.deltaTime * speed);
+
+            if (championCharacter.transform.position.z - transform.position.z <= 0)
+            {
+                speed = 0;
+                isMoving = false;
+            }
         }
     }
 }
