@@ -57,6 +57,29 @@ public class UserControl : MonoBehaviour
         }
     }
 
+    public void HandleAttack()
+    {
+        if ((m_Selected != null && Input.GetKeyDown(KeyCode.Q)))
+        {
+            GameObject pooledProjectile = ObjectPooler.SharedInstance.GetPooledObject();
+            var ray = GameCamera.ScreenPointToRay(Input.mousePosition); //added
+            RaycastHit hit; // added
+
+            if (pooledProjectile != null && Physics.Raycast(ray, out hit))
+            {
+                pooledProjectile.SetActive(true); // activate it
+                pooledProjectile.transform.position = m_Selected.transform.position; // position it at the mouse cursor
+            }
+            /*
+            if (pooledProjectile != null)
+            {
+                pooledProjectile.SetActive(true); // activate it
+                pooledProjectile.transform.position = transform.position; // position it at player
+            }
+            */
+        }
+    }
+
     // Update is called once per frame
     private void Update()
     {
@@ -70,6 +93,9 @@ public class UserControl : MonoBehaviour
         else if (m_Selected != null && Input.GetMouseButtonDown(1))
         {
             HandleAction();
+        } else if (m_Selected != null && Input.GetKeyDown(KeyCode.Q))
+        {
+            HandleAttack();
         }
         MarkerHandling();
     }
