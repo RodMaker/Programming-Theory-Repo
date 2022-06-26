@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
+using TMPro;
+using UnityEngine.UI;
 
 public class MainManager : MonoBehaviour
 {
@@ -9,8 +11,7 @@ public class MainManager : MonoBehaviour
 
     public static MainManager Instance { get; private set; } // ENCAPSULATION (4 Pillars of OOP)
 
-    //public Text PlayerName; // need to investigate how to call the type of text, since it's TMPro and not regular text
-
+    //private TextMeshProUGUI CurrentPlayerName;
     public string PlayerName;
     public Color PlayerColor;
 
@@ -43,6 +44,7 @@ public class MainManager : MonoBehaviour
         SaveData data = new SaveData();
 
         data.PlayerName = PlayerName;
+        //data.PlayerName = PlayerName;
 
         string json = JsonUtility.ToJson(data);
 

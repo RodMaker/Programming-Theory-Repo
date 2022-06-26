@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
@@ -12,6 +13,7 @@ public class MenuUIHandler : MonoBehaviour
 {
     // Update method deleted - we don't need it right now
 
+    [SerializeField] TextMeshProUGUI playerNameInput;
     public ColorPicker ColorPicker;
 
     public void NewNameSelected(string name)
@@ -40,6 +42,11 @@ public class MenuUIHandler : MonoBehaviour
         SceneManager.LoadScene(1);
     }
 
+    public void SetPlayerName()
+    {
+        MainManager.Instance.PlayerName = playerNameInput.text;
+    }
+
     public void ExitGame()
     {
         MainManager.Instance.SaveName();
@@ -66,6 +73,7 @@ public class MenuUIHandler : MonoBehaviour
 
     public void SaveNameClicked()
     {
+        MainManager.Instance.PlayerName = playerNameInput.text;
         MainManager.Instance.SaveName();
     }
 

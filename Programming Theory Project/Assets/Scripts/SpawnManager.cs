@@ -8,7 +8,7 @@ public class SpawnManager : MonoBehaviour
 
     private float spawnRangeX = 10.0f;
     private float spawnPosX;
-    private float spawnPosY = 0.0f;
+    private float spawnPosY = 0.5f;
     private float spawnPosZ = -30.0f;
     private float startDelay = 2.0f;
     private float spawnInterval = 1.5f;

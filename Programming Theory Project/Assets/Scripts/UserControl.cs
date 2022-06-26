@@ -15,7 +15,7 @@ public class UserControl : MonoBehaviour
 
     public AttackType currentAttack = AttackType.None;
 
-    private Rigidbody playerRB;
+    private Rigidbody championRB;
 
     // Pushback
     public float pushbackStrength =  15.0f;
@@ -109,14 +109,17 @@ public class UserControl : MonoBehaviour
         else if (m_Selected != null && Input.GetMouseButtonDown(1))
         {
             HandleAction();
-        } else if (m_Selected != null && Input.GetKeyDown(KeyCode.E))
+        } 
+        else if (m_Selected != null && Input.GetKeyDown(KeyCode.E))
         {
             currentAttack = AttackType.Rockets;
             HandleProjectileAttack();
-        } else if (m_Selected != null && Input.GetKeyDown(KeyCode.E))
+        } 
+        else if (m_Selected != null && Input.GetKeyDown(KeyCode.T))
         {
             //HandleJumping(); // or dash
-        } else if (m_Selected != null && Input.GetKeyDown(KeyCode.R))
+        } 
+        else if (m_Selected != null && Input.GetKeyDown(KeyCode.R))
         {
             currentAttack = AttackType.Smash;
             smashing = true;
@@ -176,14 +179,14 @@ public class UserControl : MonoBehaviour
         while (Time.time < jumpTime)
         {
             // move the player up while still keeping their x velocity
-            playerRB.velocity = new Vector2(playerRB.velocity.x, smashSpeed);
+            championRB.velocity = new Vector2(championRB.velocity.x, smashSpeed);
             yield return null;
         }
 
         // Now moce the player down
         while (transform.position.y > floorY)
         {
-            playerRB.velocity = new Vector2(playerRB.velocity.x, -smashSpeed * 2);
+            championRB.velocity = new Vector2(championRB.velocity.x, -smashSpeed * 2);
             yield return null;
         }
 

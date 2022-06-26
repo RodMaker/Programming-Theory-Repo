@@ -10,7 +10,7 @@ public class RocketBehaviour : MonoBehaviour
     private bool homing;
 
     private float rocketStrength = 15.0f;
-    private float aliveTimer = 5.0f;
+    private float aliveTimer = 2.0f;
 
     // Update is called once per frame
     void Update()
@@ -40,6 +40,7 @@ public class RocketBehaviour : MonoBehaviour
                 Vector3 away = - col.contacts[0].normal;
                 targetRigidbody.AddForce(away * rocketStrength, ForceMode.Impulse);
                 Destroy(gameObject);
+                Destroy(target.gameObject);
             }
         }
     }

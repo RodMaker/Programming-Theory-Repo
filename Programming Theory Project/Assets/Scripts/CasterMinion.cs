@@ -63,7 +63,6 @@ public class CasterMinion : Enemy
 
             tmpRocket = Instantiate(rocketPrefab, transform.position + Vector3.up, Quaternion.identity);
             tmpRocket.GetComponent<RocketBehaviour>().Fire(championCharacter.transform);
-
         }
     }
 }
