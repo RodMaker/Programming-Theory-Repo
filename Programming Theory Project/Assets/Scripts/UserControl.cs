@@ -7,6 +7,8 @@ using System;
 // (That would be the ideal situation, but for now it will rest as click on the champion and then activate his movement)
 public class UserControl : MonoBehaviour
 {
+    private ChampionCharacter championCharacter;
+
     public Camera GameCamera;
     public float PanSpeed = 10.0f;
     public GameObject Marker;
@@ -36,6 +38,7 @@ public class UserControl : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
+        championCharacter = GameObject.Find("ChampionCharacter").GetComponent<ChampionCharacter>();
         Marker.SetActive(false);
     }
 
@@ -114,6 +117,7 @@ public class UserControl : MonoBehaviour
         {
             currentAttack = AttackType.Rockets;
             HandleProjectileAttack();
+            championCharacter.TakeManaDamage(10);
         } 
         else if (m_Selected != null && Input.GetKeyDown(KeyCode.T))
         {
@@ -124,6 +128,7 @@ public class UserControl : MonoBehaviour
             currentAttack = AttackType.Smash;
             smashing = true;
             StartCoroutine(Smash());
+            championCharacter.TakeManaDamage(10);
         }
         
         MarkerHandling();

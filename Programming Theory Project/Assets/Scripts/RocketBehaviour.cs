@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class RocketBehaviour : MonoBehaviour
 {
-    // Update() method deleted - we don't need it right now
+    private ChampionCharacter championCharacter;
     private Transform target;
     private float speed = 15.0f;
     private bool homing;
@@ -12,7 +12,11 @@ public class RocketBehaviour : MonoBehaviour
     private float rocketStrength = 15.0f;
     private float aliveTimer = 2.0f;
 
-    // Update is called once per frame
+    void Start()
+    {
+        championCharacter = GameObject.Find("ChampionCharacter").GetComponent<ChampionCharacter>();
+    }
+
     void Update()
     {
         if (homing && target != null)
@@ -40,7 +44,15 @@ public class RocketBehaviour : MonoBehaviour
                 Vector3 away = - col.contacts[0].normal;
                 targetRigidbody.AddForce(away * rocketStrength, ForceMode.Impulse);
                 Destroy(gameObject);
-                Destroy(target.gameObject);
+                
+                if (col.gameObject == championCharacter.gameObject)
+                {
+                    championCharacter.TakeDamage(10);
+                }
+                else 
+                {
+                    Destroy(target.gameObject);
+                }
             }
         }
     }
