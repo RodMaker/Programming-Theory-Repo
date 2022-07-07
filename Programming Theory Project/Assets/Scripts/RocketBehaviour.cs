@@ -5,6 +5,7 @@ using UnityEngine;
 public class RocketBehaviour : MonoBehaviour
 {
     private ChampionCharacter championCharacter;
+    private CasterMinion casterMinion;
     private Transform target;
     private float speed = 15.0f;
     private bool homing;
@@ -15,6 +16,7 @@ public class RocketBehaviour : MonoBehaviour
     void Start()
     {
         championCharacter = GameObject.Find("ChampionCharacter").GetComponent<ChampionCharacter>();
+        casterMinion = GameObject.Find("CasterMinion").GetComponent<CasterMinion>();
     }
 
     void Update()
@@ -41,13 +43,19 @@ public class RocketBehaviour : MonoBehaviour
             if (col.gameObject.CompareTag(target.tag))
             {
                 Rigidbody targetRigidbody = col.gameObject.GetComponent<Rigidbody>();
-                Vector3 away = - col.contacts[0].normal;
-                targetRigidbody.AddForce(away * rocketStrength, ForceMode.Impulse);
-                Destroy(gameObject);
+                //Vector3 away = - col.contacts[0].normal;
+                //targetRigidbody.AddForce(away * rocketStrength, ForceMode.Impulse);
+                //Destroy(gameObject);
                 
                 if (col.gameObject == championCharacter.gameObject)
                 {
                     championCharacter.TakeDamage(10);
+                    Destroy(gameObject);
+                }
+                else if (col.gameObject == casterMinion.gameObject)
+                {
+                    casterMinion.TakeDamage(10);
+                    Destroy(gameObject);
                 }
                 else 
                 {

@@ -15,8 +15,9 @@ public class MainSceneUIHandler : MonoBehaviour
 
     public static MainSceneUIHandler Instance { get; private set; } // ENCAPSULATION (4 Pillars of OOP)
 
-    public TextMeshProUGUI CurrentPlayerName;
-
+    [Header("Player Name")]
+    public TextMeshProUGUI CurrentPlayerName;           // Main UI
+    public TextMeshProUGUI playerUICurrentPlayerName;   // Player UI
     private string PlayerName;
 
     private void Awake()
@@ -29,6 +30,7 @@ public class MainSceneUIHandler : MonoBehaviour
     void Start()
     {
         CurrentPlayerName.text = MainManager.Instance.PlayerName;
+        playerUICurrentPlayerName.text = MainManager.Instance.PlayerName;
         //PlayerName = MainManager.Instance.PlayerName;
         //CurrentPlayerName.text = $" {PlayerName} ";
     }

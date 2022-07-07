@@ -8,16 +8,16 @@ public class ChampionCharacter : CharacterHandler
 {
     // Start() and Update() methods deleted - we don't need them right now (probably will need Update for keypresses and stuff, unless it is gonna be done on a separate script)
 
+    [Header("Targets")]
     private Tower m_CurrentAttackingTarget;
 
     private Tower tower;
 
+    [Header("Rockets")]
     public GameObject rocketPrefab;
     private GameObject tmpRocket;
 
-    public bool isDead;
-
-    // HEALTH variables
+    [Header("Health")]
     public HealthBar healthBar; 
 
     public int healthLevel = 10;
@@ -27,8 +27,9 @@ public class ChampionCharacter : CharacterHandler
     public float healthRegenerationAmount = 1;
     public float healthRegenTimer = 0;
 
+    public bool isDead;
 
-    // MANA variables
+    [Header("Mana")]
     public ManaBar manaBar;
 
     public int manaLevel = 10;
@@ -38,8 +39,8 @@ public class ChampionCharacter : CharacterHandler
     public float manaRegenerationAmount = 1;
     public float manaRegenTimer = 0;
 
-    // GOLD variables
-    public int gold;
+    [Header("Gold")]
+    public int goldCount;
     public int goldAwardedOnDeath = 50;
 
     public void Start()
@@ -139,5 +140,10 @@ public class ChampionCharacter : CharacterHandler
             currentMana += Mathf.RoundToInt(manaRegenerationAmount * Time.deltaTime);
             manaBar.SetCurrentMana(Mathf.RoundToInt(currentMana));
         }
+    }
+
+    public void AddGold(int gold)
+    {
+        goldCount = goldCount + gold;
     }
 }
